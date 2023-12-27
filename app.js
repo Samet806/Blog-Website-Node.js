@@ -8,11 +8,13 @@ const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const { default: mongoose } = require("mongoose");
 const MongoStore = require("connect-mongo");
+const admin=require("./routes/admin")
+const methodOverride=require("method-override");
 const app = express();
 // Statik dosyaların bulunduğu klasörü belirt
 app.use(express.static("public"));
 app.use(express.json());
-
+app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true }));
 
 const hbs = exphbs.create({
@@ -70,5 +72,7 @@ app.use((req, res, next) => {
 app.use(mainRouter);
 app.use("/posts", postsRouter);
 app.use("/users", registerRouter);
+app.use("/admin",admin)
+
 
 module.exports = app;
