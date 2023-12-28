@@ -10,7 +10,7 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   await User.create(req.body)
     .then((data) => {
-      console.log(data);
+      console.log(data); 
     })
     .catch((err) => {
       console.log(err);

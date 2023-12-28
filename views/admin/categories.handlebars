@@ -14,7 +14,7 @@
         <div class="clearfix mt-5"></div>
         <div class="row">
             <div class="col-md-4">
-                <form action="/admin/categories" method="POST" >
+                <form action="/admin/categories" method="POST">
 
                     <div class=" col-md-10">
 
@@ -38,6 +38,7 @@
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>
+                            <th>EDIT</th>
                             <th>DELETE</th>
                         </tr>
                     </thead>
@@ -47,13 +48,16 @@
                             <td style="cursor: pointer;">{{_id}}</td>
                             <td style="cursor: pointer;">{{name}}</td>
                             <td style="cursor: pointer;">
+                                <a href="/admin/category/edit/{{_id}}" class="btn btn-warning">EDIT</a>
+                            </td>
+                            <td style="cursor: pointer;">
                                 <form action="/admin/categories/{{id}}?_method=DELETE" method="post">
-                                 
+
                                     <button type="submit" class="btn btn-danger">DELETE</button>
                                 </form>
                             </td>
                         </tr>
-                       
+
                         {{/each}}
                     </tbody>
                 </table>

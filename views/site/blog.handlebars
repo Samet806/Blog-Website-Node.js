@@ -31,7 +31,8 @@
 									<li><i class="fas fa-comments"></i><span class="writer">13</span></li>
 								</ul>
 								<h3>{{title}}</h3>
-								<p>{{content}}</p>
+								
+								<p>{{truncate content 120}}</p>
 								<a href="/posts/{{_id}}">Read More</a>
 							</div>
 						</div>
@@ -41,7 +42,10 @@
 					<div>
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
+
+                              {{#paginate current=current pages=pages}}
+							  {{/paginate}}
+								{{!-- <li class="page-item disabled">
 									<a class="page-link" href="#" tabindex="-1">Previous</a>
 								</li>
 								<li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -49,56 +53,17 @@
 								<li class="page-item"><a class="page-link" href="#">3</a></li>
 								<li class="page-item">
 									<a class="page-link" href="#">Next</a>
-								</li>
+								</li> --}}
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</main>
 
-			<aside id="aside" class="col-md-4">
-
-				<div class="widget">
-					<div class="widget-search">
-						<input class="search-input form-control" type="text" placeholder="Search">
-						<button class="search-btn" type="button"><i class="fas fa-search"></i></button>
-					</div>
-				</div>
-				<!-- /Search -->
-
-
-				<!-- Category -->
-				{{> site-sitebar}}
-				<!-- /Category -->
-
-				<!-- Posts sidebar -->
-				<div class="widget">
-					<h3 class="mb-3">Latest Posts</h3>
-
-					<!-- single post -->
-					{{#each posts}}
-
-					<div class="widget-post">
-						<a href="#">
-							<img style="width: 75px;height: 75px;" class="img-fluid" src="{{post_image}}"
-								alt="">{{title}}
-						</a>
-						<ul class="blog-meta">
-							<li>{{generateDate date "MMM DD YYYY"}}</li>
-						</ul>
-					</div>
-
-					{{/each }}
-					<!-- /single post -->
-
-
-
-				</div>
-				<!-- /Posts sidebar -->
-
-			</aside>
-
-
+			<!-- /Search -->
+			<!-- Category -->
+			{{> site-sitebar}}
+			<!-- /Category -->
 
 		</div>
 
