@@ -23,7 +23,6 @@ router.post("/email", (req, res) => {
               pass: "yoenakmmcedfppqx",
             },
           });
-          //yoenakmmcedfppqx
           // async..await is not allowed in global scope, must use a wrapper
           async function main() {
             // send mail with defined transport object
@@ -41,7 +40,7 @@ router.post("/email", (req, res) => {
               };
           
             console.log("Message sent: %s", info.messageId);
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+          
             req.session.sessionFlash = {
                 type: "alert alert-success",
                 message: "Mesajınız başarılı bir şekilde gönderildi",

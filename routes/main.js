@@ -5,7 +5,7 @@ const User = require("../models/UserModel");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  // res.sendFile(path.resolve(__dirname,"site/index.html"))   express handlebars kullanmadan önce bu şekilde yapıyorduk
+
   res.render("site/index");
 });
 
