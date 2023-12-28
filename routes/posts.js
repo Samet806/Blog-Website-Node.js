@@ -40,8 +40,8 @@ router.get("/look", function (req, res) {
               num_of_posts: { $size: "$posts" },
             },
           },
-        ]).then((categories) => {
-          res.render("site/blog", { posts: posts, categories: categories });
+        ]).sort({_id:-1}).then((categories) => {
+          res.render("site/blog", { posts: posts, categories: categories,allPosts:posts });
         });
       });
   }
@@ -68,8 +68,12 @@ router.get("/category/:categoryId", (req, res) => {
             num_of_posts: { $size: "$posts" },
           },
         },
-      ]).then((categories) => {
-        res.render("site/blog", { posts: posts, categories: categories });
+      ]).sort({ _id: -1 }).then((categories) => {
+         Post.find({}).sort({_id:-1}).then((allPosts)=>{
+       
+          res.render("site/blog", { posts: posts, categories: categories,allPosts:allPosts });
+         })
+      
       });
     });
 });

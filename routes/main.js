@@ -43,6 +43,7 @@ router.get("/blog", (req, res) => {
             res.render("site/blog", {
               categories: [...categories],
               posts: [...posts],
+              allPosts:posts,
               current: parseInt(page),
               pages: Math.ceil(postCount / postPerPage),
             });

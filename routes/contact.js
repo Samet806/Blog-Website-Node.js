@@ -12,15 +12,15 @@ router.post("/email", (req, res) => {
         </ul>
         <h3> Message  </h3>
         <p>:${req.body.message}  </p>`;
-
+       
         const transporter = nodemailer.createTransport({
-            host: "smtp.live.com",
-            port: 587,
-            secure: false,
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
-              // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-              user: "sevim43osma@hotmail.com",
-              pass: "Sevim+123",
+           
+              user: "sametkoruk2@gmail.com",
+              pass: "yoenakmmcedfppqx",
             },
           });
           //yoenakmmcedfppqx
@@ -28,8 +28,8 @@ router.post("/email", (req, res) => {
           async function main() {
             // send mail with defined transport object
             const info = await transporter.sendMail({
-              from: '"Node Proje contact form" <sevim43osma@hotmail.com>', // sender address
-              to: "sevim43osma@hotmail.com", // list of receivers
+              from: '"Node Proje contact form" <sametkoruk2@gmail.com>', // sender address
+              to: "sametkoruk2@gmail.com", // list of receivers
               subject: "Node Contact message ✔", // Subject line
               text: "Hello world?", // plain text body
               html: outputHTML, // html body
