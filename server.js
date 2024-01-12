@@ -3,6 +3,7 @@ const app=require("./app")
 const dotenv=require("dotenv")
 dotenv.config({path:"./.env"});
 const port = 3000;
+const serverless=require("serverless-http")
 
 mongoose.connect(process.env.URL_STR,{
     useNewUrlParser:true,

@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build":"npm i"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,10 @@
     "method-override": "^3.0.0",
     "moment": "^2.29.4",
     "mongoose": "^8.0.3",
+    "netlify-cli": "^17.13.1",
+    "netlify-lambda": "^2.0.16",
     "nodemailer": "^6.9.7",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "serverless-http": "^3.2.0"
   }
 }
