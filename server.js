@@ -5,13 +5,14 @@ dotenv.config({path:"./.env"});
 const port = 3000;
 const serverless=require("serverless-http")
 
-mongoose.connect(process.env.URL_STR,{
+mongoose.connect(process.env.MONGO_URL,{
+    dbName:"blog",
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{
     console.log("database bağlandı")
-}).catch(()=>{
-    console.log("Database bağlanmada hata oldu");
+}).catch((err)=>{
+    console.log("Database bağlanmada hata oldu"+err);
 })
 
 
